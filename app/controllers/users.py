@@ -103,7 +103,7 @@ def get_all_users():
 
 
 # get user by id
-@auth_bp.route('/lac/get_user/<int:user_id>', methods=['GET'])
+@auth_bp.route('/user/get_user/<int:user_id>', methods=['GET'])
 @jwt_required()
 def get_user(user_id):
     try:
