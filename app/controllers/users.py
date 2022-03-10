@@ -28,7 +28,7 @@ def deo_registration():
         if existing_user:
             return make_response(jsonify({'message': 'Username already exists!'}), 400)
 
-        if data['Phone_number'] > 15 or data['Phone_number'] < 10:
+        if len(data['Phone_number']) > 15 or len(data['Phone_number']) < 10:
             return make_response(jsonify({'message': 'Phone number should be between 10-15 digits!'}), 400)
 
 
