@@ -22,8 +22,8 @@ function App() {
   if (!userData) return [];
 
   return (
-    <div className="App">
-      <table class="table table-dark table-striped" style={{ marginTop: 100 }}>
+    <div className="App" style={{ marginTop: 100, marginLeft:100, marginRight:100 }}>
+      <table class="table table-dark table-striped">
         <thead>
           <tr>
             <th scope="col">First Name</th>
