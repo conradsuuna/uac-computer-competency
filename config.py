@@ -1,5 +1,5 @@
 from os import environ
-import psycopg2 #or any other database driver
+import psycopg2
 from datetime import timedelta
 from dotenv import load_dotenv
 load_dotenv()
@@ -21,20 +21,8 @@ class Config(object):
     JWT_SECRET_KEY = environ.get('SECRET_KEY')
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(days=1)
 
-    # file upload configurations
-    # MAX_CONTENT_LENGTH = 1024 * 1024 # 1MB
-    UPLOAD_FOLDER = 'static/files'
-    # ALLOWED_EXTENSIONS = ['.pdf']
-
-    # Mail Configs
-    # MAIL_SERVER = environ.get('MAIL_SERVER')
-    # MAIL_PORT = environ.get('MAIL_PORT')
-    # MAIL_USE_TLS = True
-    # MAIL_USE_SSL = False
-    # MAIL_USERNAME = environ.get('MAIL_USERNAME')
-    # MAIL_PASSWORD = str(environ.get('MAIL_PASSWORD'))
-    # MAIL_DEFAULT_SENDER = environ.get('MAIL_DEFAULT_SENDER')
-    # SECURITY_PASSWORD_SALT = environ.get('SECURITY_PASSWORD_SALT')
+    # pagination
+    NUM_OF_ITEMS_PER_PAGE = 18
 
 class DevelopmentConfig(Config):
     """ app development configuration class """

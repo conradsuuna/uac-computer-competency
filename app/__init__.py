@@ -40,17 +40,17 @@ def create_app():
 
     with app.app_context():
         # import models
-        from .models import (Token
+        from .models import (Token, User
                              )
 
         # Import controller blueprints
         '''Controller blueprints'''
-        # from .controllers.auth import auth_bp, create_default_user
+        from .controllers.users import auth_bp
         
 
         # Register Blueprints
         '''registered blueprints'''
-        # app.register_blueprint(auth_bp)
+        app.register_blueprint(auth_bp)
         
 
         # revoke tokens
