@@ -1,16 +1,11 @@
 from flask import Blueprint, current_app, request, make_response, jsonify
-from ..models.User import User, HIVStatusEnum
+from ..models.User import User
 from flask_jwt_extended import (
     create_access_token,
     create_refresh_token,
     jwt_required,
-    get_jwt,
-    get_jwt_identity
 )
-
-from datetime import datetime
 import traceback
-from .. import db
 
 
 auth_bp = Blueprint('auth_bp', __name__)
@@ -44,9 +39,9 @@ def deo_registration():
         )
         new_user.save()
 
-        access_token = create_access_token(identity = data['username'])
-        refresh_token = create_refresh_token(identity = data['username'])
-        resp = jsonify({'message':'Account created successfully','access_token':access_token,'refresh_token':refresh_token})
+        # access_token = create_access_token(identity = data['username'])
+        # refresh_token = create_refresh_token(identity = data['username'])
+        resp = jsonify({'message':'Account created successfully'})
         return make_response(resp, 201)
     except:
         return make_response(str(traceback.format_exc()),500)
@@ -77,6 +72,7 @@ def login():
     except:
         return make_response(str(traceback.format_exc()),500)
 
+
 # get all system users
 @auth_bp.route('/user/get_users', methods=['GET'])
 @jwt_required()
@@ -99,6 +95,7 @@ def get_all_users():
         return make_response(jsonify({"data": users, "info": pagination_info}),200)
     except:
         return make_response(str(traceback.format_exc()),500)
+
 
 # get user by id
 @auth_bp.route('/lac/get_user/<int:user_id>', methods=['GET'])
