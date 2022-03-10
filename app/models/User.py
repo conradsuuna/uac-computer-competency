@@ -20,7 +20,7 @@ class User(db.Model):
     HIV_status = db.Column(db.Enum(HIVStatusEnum,
                                      values_callable=lambda x: [str(e.value) for e in HIVStatusEnum]),
                                      nullable=False)
-    Phone_number = db.Column(db.Integer, nullable=False)
+    Phone_number = db.Column(db.VARCHAR(20), nullable=False)
     creation_date = db.Column(db.DateTime, default=datetime.utcnow)
     update_date = db.Column(db.DateTime, default=datetime.utcnow, onupdate=db.func.current_timestamp())
 

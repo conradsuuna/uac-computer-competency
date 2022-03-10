@@ -39,7 +39,7 @@ function App() {
               <td scope="col">{d.first_name}</td>
               <td scope="col">{d.surname}</td>
               <td scope="col">{d.HIV_status.split(".")[1]}</td>
-              <td scope="col">{d.Phone_number}</td>
+              <td scope="col">{d.Phone_number.toString()}</td>
               <td scope="col">{d.creation_date}</td>
           </tr>
           ))}
