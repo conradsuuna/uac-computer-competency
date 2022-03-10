@@ -34,6 +34,7 @@ def deo_registration():
             first_name = data['first_name'],
             password = User.hash_password(data['password']),
             surname = data['surname'],
+            age = data['age'],
             HIV_status = data['HIV_status'],
             Phone_number = data['Phone_number']
         )
